@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Baloo 2', 'Noto Sans Devanagari', sans-serif;
+  background-color: #f8ecd2;
+  color: #341f12;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Reusable dotted divider motif used between sections */
+.motif-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.motif-divider span {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: currentColor;
+  opacity: 0.5;
+}
+.motif-divider span:nth-child(2) {
+  width: 10px;
+  height: 10px;
+  opacity: 0.9;
+}
+
+/* Warm cream section background with a very soft mandala glow */
+.bg-temple-texture {
+  background-color: #f8ecd2;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(220, 172, 65, 0.14) 0, transparent 45%),
+    radial-gradient(circle at 85% 0%, rgba(178, 58, 31, 0.08) 0, transparent 40%);
+}
+
+/* Deep bronze/gold gradient used on the gate + hero */
+.bg-temple-gate {
+  background:
+    radial-gradient(circle at 50% 15%, rgba(240, 217, 138, 0.5), transparent 55%),
+    linear-gradient(160deg, #e6c15c 0%, #c8912f 35%, #875a1b 70%, #5c3d1c 100%);
+}
+
+/* Deep near-black brown used for the "blessings" section */
+.bg-temple-shrine {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(220, 172, 65, 0.18), transparent 60%),
+    linear-gradient(180deg, #26160c 0%, #180d07 100%);
+}
+
+/* Concentric mandala ring drawn purely in CSS, used behind the gate button */
+.mandala-ring {
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 244, 214, 0.35);
+}
+
+/* Focus visibility for keyboard users */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #f0d98a;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+/* Falling flower petal used in the "shower flowers" blessing interaction */
+.petal {
+  position: absolute;
+  top: 0;
+  font-size: 1.1rem;
+  animation: petalFall 1.8s ease-in forwards;
+  will-change: transform, opacity;
+}
